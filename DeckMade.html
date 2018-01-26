@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deck</title>
+</head>
+<style>
+    body
+    {
+        font-family: "Courier New", Courier, monospace;
+        background-color: whitesmoke;
+        background-image: url("backing.jpg");
+
+    }
+
+    .backing
+    {
+        background-color: white;
+
+    }
+
+    .content
+    {
+        background-color: white;
+        width: 80vw;
+        margin: auto;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+</style>
+<body>
+
+
+        <div class="content">
+            <h1 id="name">-Hunter Merritt.</h1>
+            <hr>
+            <br>
+            <h2>-Who Am I.</h2>
+            <p id="blurb">Hi I am Hunter Merritt! I am a creator and love to build things with technology! Let me know if you have any questions!</p>
+            <br>
+            <hr>
+            <br>
+            <h2>-Experience.</h2>
+            <p id="experience">I have worked as a software developer, project manager, and product manager at different startups and established companies!
+            I also have a passion for learning new things and have a full plate of side projects I would love to get to.</p>
+            <br>
+            <hr>
+            <h2>-Helpful Links.</h2>
+            <a href="https://www.twitter.com">Twitter</a>
+            <a href="https://github.com/">Github</a>
+
+        </div>
+        <script>
+
+            var getUrlParameter = function getUrlParameter(sParam)
+            {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            };
+
+
+
+            var named = document.getElementById("name");
+
+            var temp = getUrlParameter('name');
+            if (typeof temp != 'undefined') {
+                temp = temp.split("_").join(" ");
+                named.innerHTML = temp;
+            }
+
+
+            var blurbs = document.getElementById("blurb");
+
+            var temp1 = getUrlParameter('blurb');
+            if (typeof temp1 != 'undefined') {
+                temp1 = temp1.split("_").join(" ");
+                blurbs.innerHTML = temp1;
+            }
+
+            var experience = document.getElementById("experience");
+
+            var temp2 = getUrlParameter('exper');
+            if (typeof temp2 != 'undefined') {
+                temp2 = temp2.split("_").join(" ");
+                experience.innerHTML = temp2;
+            }
+
+
+
+        </script>
+
+
+</body>
+</html>
